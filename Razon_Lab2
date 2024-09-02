@@ -1,0 +1,50 @@
+import java.util.Scanner;
+
+class Cylinder {
+    protected double radius;
+    protected double height;
+
+    // Constructor to initialize radius and height
+    public Cylinder(double radius, double height) {
+        this.radius = radius;
+        this.height = height;
+    }
+
+    // Method to calculate the area of the cylinder
+    public double area() {
+        return 2 * Math.PI * radius * radius + 2 * Math.PI * radius * height;
+    }
+}
+
+class CylinderVol extends Cylinder {
+
+    // Constructor to initialize radius and height in the parent class
+    public CylinderVol(double radius, double height) {
+        super(radius, height);
+    }
+
+    // Method to calculate the volume of the cylinder
+    public double volume() {
+        return Math.PI * radius * radius * height;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Get the input from the user
+        System.out.print("Enter the radius of the cylinder: ");
+        double radius = scanner.nextDouble();
+
+        System.out.print("Enter the height of the cylinder: ");
+        double height = scanner.nextDouble();
+
+        // Create an object of CylinderVol
+        CylinderVol cylinderVol = new CylinderVol(radius, height);
+
+        // Calculate and display the area and volume
+        System.out.println("Area of the cylinder: " + cylinderVol.area());
+        System.out.println("Volume of the cylinder: " + cylinderVol.volume());
+    }
+}
